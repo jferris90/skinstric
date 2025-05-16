@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import Header from '../components/Header'
 import BackBtn from '../components/BackBtn';
 import InfoBox from '../components/InfoBox';
@@ -33,7 +32,7 @@ const Info = () => {
         </div>
       </main>
       <footer className="relative">
-        <div className="absolute -bottom-5 left-4 flex items-center">
+        <div className="absolute -bottom-7 left-5 flex items-center">
           <BackBtn />
         </div>
       </footer>
