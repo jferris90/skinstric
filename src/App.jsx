@@ -1,12 +1,18 @@
-import React from 'react'
-import Intro from './pages/Intro'
+import Intro from './pages/Intro';
+import Info from './pages/Info';
+import Analysis from './pages/Analysis';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
 
   return (
-    <>
-      <Intro />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Intro />} />
+        <Route path="/info" element={<Info />} />
+        <Route path="/analysis" element={<Analysis />} />
+      </Routes>
+    </Router>
   )
 }
 

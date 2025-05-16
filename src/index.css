@@ -1,5 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  
+    --animate-spin1: spin 90s linear infinite;
+
+    @keyframes spin1 {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    --animate-spin2: spin 120s linear infinite;
+
+    @keyframes spin2 {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    --animate-spin3: spin 140s linear infinite;
+
+    @keyframes spin3 {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
 }

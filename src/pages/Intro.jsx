@@ -1,14 +1,15 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Header from '../components/Header'
+import { Link } from 'react-router-dom';
 
 const Intro = () => {
     const [testHovered, setTestHovered] = useState(false);
     const [discoverHovered, setDiscoverHovered] = useState(false);
 
   return (
-    <div>
+    <div className="">
       <Header />
-      <main className="flex justify-center items-center h-[85vh] w-full bg-white relative overflow-x-hidden">
+      <main className="flex justify-center items-center h-[85vh] bg-white relative">
         {/* Left Rectangle */}
         <div
           className={`absolute left-0 top-1/2 transform -translate-y-1/2 transition-all duration-500 ${
@@ -49,24 +50,26 @@ const Intro = () => {
         </section>
 
         {/* Right Rectangle */}
-        <div className={`absolute -right-37 top-1/2 transform -translate-y-1/2 transition-all duration-500 ${discoverHovered ? 'opacity-0' : 'opacity-100'}`}>
+        <div className={`fixed -right-37 top-1/2 transform -translate-y-1/2 transition-all duration-500 ${discoverHovered ? 'opacity-0' : 'opacity-100'}`}>
           <img
             className="w-1/2 h-auto"
             src="/Rectangle 2778.png"
             alt="Right Rectangle"
           />
-          <button
-            className="absolute uppercase top-1/2 left-20 transform -translate-x-1/2 -translate-y-1/2 flex items-center text-[10px] cursor-pointer"
-            onMouseEnter={() => setTestHovered(true)}
-            onMouseLeave={() => setTestHovered(false)}
-          >
-            <span className="text-[8px]">Take Test</span>
-            <img
-              src="/buttin-icon-shrunk.png"
-              alt="Take Test Icon"
-              className="w-5 h-5 ml-2 hover:scale-120 transition-all duration-300 ease-in-out"
-            />
-          </button>
+            <Link to="/Info">
+                <button
+                    className="absolute uppercase top-1/2 left-20 transform -translate-x-1/2 -translate-y-1/2 flex items-center text-[10px] cursor-pointer"
+                    onMouseEnter={() => setTestHovered(true)}
+                    onMouseLeave={() => setTestHovered(false)}
+                >
+                    <span className="text-[8px]">Take Test</span>
+                    <img
+                    src="/buttin-icon-shrunk.png"
+                    alt="Take Test Icon"
+                    className="w-5 h-5 ml-2 hover:scale-120 transition-all duration-300 ease-in-out"
+                    />
+                </button>
+            </Link>
         </div>
 
         {/* Footer Text */}
