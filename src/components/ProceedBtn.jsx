@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const ProceedBtn = () => {
   return (
     <Link to="/upload">
-            <button className="uppercase flex items-center gap-3 font-semibold text-[8px] cursor-pointer">
+            <button className="uppercase flex items-center gap-3 font-semibold text-[8px] cursor-pointer font-roobertTrial">
                 <span>Proceed</span>
                 <img
                 src="/buttin-icon-shrunk.png"

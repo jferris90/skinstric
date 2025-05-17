@@ -17,7 +17,7 @@ const Intro = () => {
           }`}
         >
           <img
-            className="w-1/2 h-auto"
+            className="w-[60%] h-auto"
             src="/Rectangle 2779.png"
             alt="Left Rectangle"
           />
@@ -29,30 +29,35 @@ const Intro = () => {
               alt="Discover A.I. Icon"
               className="w-5 h-5 mr-2 hover:scale-120 transition-all duration-300 ease-in-out"
             />
-            <span className="text-[8px]">Discover A.I.</span>
+            <span className="text-[8px] font-roobertTrial">Discover A.I.</span>
           </button>
         </div>
 
         {/* Center Content */}
         <section
-          className={`text-center transition-all duration-1000 ease-in-out ${
+          className={`text-center transition-all duration-1000 ease-in-out -mt-4 leading-tight ${
             testHovered ? 'transform -translate-x-3/5 opacity-100 text-start' : 'opacity-100'
           } ${discoverHovered ? 'transform translate-x-3/5 opacity-100 text-end' : 'opacity-100'}`}
         >
-          <h1
-            className="text-6xl"
+          <p
+            className="text-[54px] font-roobertTrial"
             data-aos="fade-in"
             data-aos-delay="300"
             data-aos-duration="3000"
           >
-            Sophisticated <br /> skincare
-          </h1>
+            Sophisticated </p> 
+            <p 
+            className="text-[54px] font-roobertTrial -mt-2"
+            data-aos="fade-in"
+            data-aos-delay="300"
+            data-aos-duration="3000">skincare
+            </p>
         </section>
 
         {/* Right Rectangle */}
         <div className={`fixed -right-37 top-1/2 transform -translate-y-1/2 transition-all duration-500 ${discoverHovered ? 'opacity-0' : 'opacity-100'}`}>
           <img
-            className="w-1/2 h-auto"
+            className="w-[60%] h-auto"
             src="/Rectangle 2778.png"
             alt="Right Rectangle"
           />
@@ -62,7 +67,7 @@ const Intro = () => {
                     onMouseEnter={() => setTestHovered(true)}
                     onMouseLeave={() => setTestHovered(false)}
                 >
-                    <span className="text-[8px]">Take Test</span>
+                    <span className="text-[8px] font-roobertTrial">Take Test</span>
                     <img
                     src="/buttin-icon-shrunk.png"
                     alt="Take Test Icon"
@@ -73,7 +78,7 @@ const Intro = () => {
         </div>
 
         {/* Footer Text */}
-        <div className="absolute bottom-4 left-4 text-[#1A1B1C] text-[8px] uppercase font-semibold">
+        <div className="absolute bottom-4 left-4 text-[#1A1B1C] text-[8px] uppercase font-semibold font-roobertTrial">
           skinstric developed an a.i. that creates <br /> a highly-personalized routine tailored to <br /> what your skin needs.
         </div>
       </main>

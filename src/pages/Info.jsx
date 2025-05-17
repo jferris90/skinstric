@@ -6,8 +6,8 @@ const Info = () => {
   return (
    <div className="">
       <Header />
-      <div className="absolute top-9 left-5 text-[7px] font-bold uppercase">
-        To Start Analysis
+      <div className="absolute top-9 left-5 text-[7px] font-bold font-roobertTrial uppercase">
+        To <span className="text-[6px]">S</span>tart Analysis
       </div>
       <main className="flex justify-center items-center h-[85vh] w-full bg-white relative">
         <div className="relative flex justify-center items-center">

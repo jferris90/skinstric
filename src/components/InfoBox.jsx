@@ -45,7 +45,7 @@ const InfoBox = () => {
   if (loading) {
     return (
       <div className="flex flex-col items-center w-[600px]">
-        <span className="text-[16px] text-[#1A1B1C] uppercase tracking-wide -mt-[30px]">
+        <span className="text-[16px] text-[#1A1B1C] font-roobertTrial uppercase tracking-wide -mt-[30px]">
           Processing Submission
         </span>
         <span className="text-[60px] animate-pulse tracking-wide -mt-[50px]">
@@ -58,7 +58,7 @@ const InfoBox = () => {
   if (success) {
     return (
       <>
-        <div className="flex flex-col items-center -mt-[97px] w-[600px]">
+        <div className="flex flex-col items-center font-roobertTrial -mt-[97px] w-[600px]">
           <span className="text-[15px] mb-2">
             Thank You!
           </span>
@@ -76,14 +76,14 @@ const InfoBox = () => {
   }
 
   return (
-    <div className="flex flex-col items-center -mt-[97px]">
-      <label htmlFor="userInput" className="text-[8px] text-[#1A1B1C] uppercase tracking-wide">
+    <div className="flex flex-col items-center font-roobertTrial -mt-[97px]">
+      <label htmlFor="userInput" className="text-[8px] text-[#797979] uppercase tracking-wide">
         {step === 1 ? 'click to type' : 'city name'}
       </label>
       <input
         id="userInput"
         type="text"
-        className="px-3 py-2 w-68 h-10 text-[31px] focus:outline-none decoration-1 underline underline-offset-[5px] under text-center"
+        className="px-1 py-2 w-72 mt-1 h-10 text-[32px] focus:outline-none decoration-1 underline underline-offset-[5px] under text-center tracking-tight"
         placeholder={step === 1 ? 'Introduce Yourself' : 'your city name'}
         value={inputValue}
         onChange={handleInputChange}

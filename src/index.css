@@ -1,7 +1,14 @@
+@font-face {
+    font-family: 'roobertTrial';
+    src: url("./assets/fonts/RoobertTRIAL-Regular-BF67243fd53fdf2.otf");
+}
 @import "tailwindcss";
 
 @theme {
-    --animate-spin1: spin 90s linear infinite;
+
+    --font-roobertTrial: roobertTrial, "regular", sans-serif;
+
+    --animate-spin1: spin 60s linear infinite;
 
     @keyframes spin1 {
         100% {
@@ -9,7 +16,7 @@
         }
     }
 
-    --animate-spin2: spin 120s linear infinite;
+    --animate-spin2: spin 90s linear infinite;
 
     @keyframes spin2 {
         100% {
@@ -17,7 +24,7 @@
         }
     }
 
-    --animate-spin3: spin 140s linear infinite;
+    --animate-spin3: spin 100s linear infinite;
 
     @keyframes spin3 {
         100% {
