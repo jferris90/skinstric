@@ -8,7 +8,7 @@ const Intro = () => {
 
   return (
     <div className="">
-      <Header />
+      <Header text="INTRO" />
       <main className="flex justify-center items-center h-[85vh] bg-white relative">
         {/* Left Rectangle */}
         <div

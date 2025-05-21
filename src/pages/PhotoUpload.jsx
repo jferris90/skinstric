@@ -93,7 +93,7 @@ const PhotoUpload = () => {
 
   return (
     <>
-      <Header />
+      <Header text="INTRO" />
       <div className="absolute top-12 left-5 text-[8px] font-bold font-roobertTrial uppercase">
         To Start Analysis
       </div>

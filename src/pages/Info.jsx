@@ -5,7 +5,7 @@ import InfoBox from '../components/InfoBox';
 const Info = () => {
   return (
    <div className="">
-      <Header />
+      <Header text="INTRO" />
       <div className="absolute top-9 left-5 text-[7px] font-bold font-roobertTrial uppercase">
         To <span className="text-[6px]">S</span>tart Analysis
       </div>
