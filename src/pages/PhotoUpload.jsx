@@ -46,6 +46,7 @@ const PhotoUpload = () => {
           );
           setUploading(false);
           if (res.status === 200) {
+            localStorage.setItem('skinstricApiResponse', JSON.stringify(res.data.data));
             setUploadSuccess(true);
             alert("Success! Your image was uploaded successfully!")
           }
