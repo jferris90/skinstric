@@ -1,6 +1,6 @@
 import React from 'react'
 
-const RaceCard = ({ title }) => {
+const RaceCard = ({ title, isClicked }) => {
    // Get API response from localStorage
   const apiData = JSON.parse(localStorage.getItem('skinstricApiResponse'));
   // Find the highest value race
@@ -19,13 +19,13 @@ const RaceCard = ({ title }) => {
   const displayRace = title && title !== "RACE" ? title : topRace;
 
   return (
-    <div className="bg-[#F3F3F4] w-full h-20 p-2 flex flex-col items-start justify-between">
+    <div className={`w-full h-20 p-2 flex flex-col items-start justify-between ${isClicked ? "bg-black" : "bg-[#F3F3F4}"}`}>
       {displayRace ? (
-        <span className="text-[9px] font-bold text-black uppercase">{displayRace}</span>
+        <span className={`bg-transparent text-[9px] font-bold uppercase ${isClicked ? "text-white" : "text-black"}`}>{displayRace}</span>
       ) : (
         <span className="text-gray-500">No race data available</span>
       )}
-      <span className="text-[10px] uppercase font-semibold">RACE</span>
+      <span className={`bg-transparent text-[10px] uppercase font-semibold ${isClicked ? "text-white" : "text-black"}`}>RACE</span>
     </div>
   )
 }

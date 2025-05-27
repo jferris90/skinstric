@@ -15,6 +15,11 @@ const Analysis = () => {
   const [selectedRace, setSelectedRace] = useState(null);
   const [selectedAge, setSelectedAge] = useState(null);
   const [selectedSex, setSelectedSex] = useState(null);
+  const [selectedCard, setSelectedCard] = useState(null);
+  
+  const [raceClicked, setRaceClicked] = useState(false);
+  const [ageClicked, setAgeClicked] = useState(false);
+  const [sexClicked, setSexClicked] = useState(false);
 
   // Get all data from localStorage
   const apiData = JSON.parse(localStorage.getItem('skinstricApiResponse'));
@@ -83,33 +88,47 @@ const Analysis = () => {
           <div className="w-[208px] h-full flex flex-col items-center justify-start ml-4 gap-2 border-t-1 border-black-200">
             <div
               onClick={() => {
-                setShowAllRaces(true);
+                setShowAllRaces(true);               
                 setShowAllAges(false);
                 setShowAllSex(false);
+                setRaceClicked(true);
+                setAgeClicked(false);
+                setSexClicked(false);
+                setSelectedCard("race");
               }}
               className="w-full cursor-pointer"
             >
-              <RaceCard title={cardTitleRace} />
+              <RaceCard title={selectedRace ||cardTitleRace} isClicked={raceClicked} />
             </div>
             <div
               onClick={() => {
                 setShowAllAges(true);
                 setShowAllRaces(false);
                 setShowAllSex(false);
+                setRaceClicked(false);
+                setAgeClicked(true);
+                setSexClicked(false);
+                setSelectedCard("age");
+                
               }}
               className="w-full cursor-pointer"
             >
-              <AgeCard title={cardTitleAge} />
+              <AgeCard title={selectedAge || cardTitleAge} isClicked={ageClicked} />
             </div>
             <div
               onClick={() => {
                 setShowAllSex(true);
                 setShowAllRaces(false);
                 setShowAllAges(false);
+                setRaceClicked(false);
+                setAgeClicked(false);
+                setSexClicked(true);
+                setSelectedCard("sex");
+                
               }}
               className="w-full cursor-pointer"
             >
-              <SexCard title={cardTitleSex} />
+              <SexCard title={selectedSex ||cardTitleSex} isClicked={sexClicked} />
             </div>
           </div>
           {/* Column 2 */}
@@ -129,7 +148,7 @@ const Analysis = () => {
               </div>
             )}
             {percentData.length > 0 ? (
-              <div className={`w-full flex flex-col items-center font-roobertTrial justify-center tracking-normal leading-[1px] ${showAllAges ? "-mt-[36%]" : showAllRaces ? "-mt-[65%] -ml-[4px]" : showAllSex ?"-mt-[135%] uppercase" : ""}`}>
+              <div className={`w-full flex flex-col items-center font-roobertTrial justify-center tracking-normal leading-[1px] ${showAllAges ? "-mt-[30%]" : showAllRaces ? "-mt-[50%] -ml-[4px]" : showAllSex ?"-mt-[120%] uppercase" : ""}`}>
                 <PercentCard
                   title={null}
                   data={percentData}

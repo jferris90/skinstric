@@ -12,12 +12,12 @@ const Intro = () => {
       <main className="flex justify-center items-center h-[85vh] bg-white relative">
         {/* Left Rectangle */}
         <div
-          className={`absolute left-0 top-1/2 transform -translate-y-1/2 transition-all duration-500 ${
+          className={`fixed left-0 top-1/2 transform -translate-y-1/2 transition-all duration-500 ${
             testHovered ? 'opacity-0' : 'opacity-100'
           }`}
         >
           <img
-            className="w-[60%] h-auto"
+            className="w-[51%] h-auto"
             src="/Rectangle 2779.png"
             alt="Left Rectangle"
           />
