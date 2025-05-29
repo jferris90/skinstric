@@ -1,5 +1,6 @@
 import Header from '../components/Header';
 import BackBtn from '../components/BackBtn';
+import CameraCapture from '../components/CameraCapture';
 import { useRef, useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -8,6 +9,7 @@ const PhotoUpload = () => {
   const [base64Image, setBase64Image] = useState('');
   const [uploading, setUploading] = useState(false);
   const [uploadSuccess, setUploadSuccess] = useState(false);
+  const [showCamera, setShowCamera] = useState(false);
   const navigate = useNavigate();
 
   const handleGalleryClick = () => {
@@ -30,6 +32,22 @@ const PhotoUpload = () => {
       };
       reader.readAsDataURL(file);
     }
+  };
+
+  // Handle camera icon click
+  const handleCameraClick = () => {
+    if (window.confirm("Do you want to take a picture using your camera?")) {
+      setShowCamera(true);
+    }
+  };
+
+  // When CameraCapture returns a photo, set it as base64Image
+  const handleCameraCapture = (dataUrl) => {
+    // Remove the data:image/png;base64, prefix if present
+    const base64Only = dataUrl.includes(',') ? dataUrl.split(',')[1] : dataUrl;
+    setBase64Image(`/${base64Only}`);
+    localStorage.setItem('userPhoto', dataUrl);
+    setShowCamera(false);
   };
 
   useEffect(() => {
@@ -102,22 +120,20 @@ const PhotoUpload = () => {
         <div className="flex justify-center items-center gap-62 -ml-12 -mt-2">
           {/* Camera Icon with concentric rectangles */}
           <div className="relative flex justify-center items-center w-44 h-44">
+            <img src="/Rectangle 2780.png" className="absolute top-1/2 left-1/2 w-36 h-36 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-10 animate-spin1" alt="Rectangle 2780" />
+            <img src="/Rectangle 2781.png" className="absolute top-1/2 left-1/2 w-32 h-32 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-20 animate-spin2" alt="Rectangle 2781" />
+            <img src="/Rectangle 2782.png" className="absolute top-1/2 left-1/2 w-28 h-28 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-30 animate-spin3" alt="Rectangle 2782" />
             <img
-              src="/Rectangle 2780.png"
-              className="absolute top-1/2 left-1/2 w-36 h-36 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-10 animate-spin1"
-              alt="Rectangle 2780"
+              src="/camera-icon.png"
+              alt="Camera Icon"
+              className="w-19 h-19 z-40 relative cursor-pointer"
+              onClick={handleCameraClick}
             />
-            <img
-              src="/Rectangle 2781.png"
-              className="absolute top-1/2 left-1/2 w-32 h-32 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-20 animate-spin2"
-              alt="Rectangle 2781"
-            />
-            <img
-              src="/Rectangle 2782.png"
-              className="absolute top-1/2 left-1/2 w-28 h-28 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-30 animate-spin3"
-              alt="Rectangle 2782"
-            />
-            <img src="/camera-icon.png" alt="Camera Icon" className="w-19 h-19 z-40 relative" />
+            {showCamera && (
+              <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-90 z-50">
+                <CameraCapture onCapture={handleCameraCapture} onClose={() => setShowCamera(false)} />
+              </div>
+            )}
           </div>
           {/* Gallery Icon with concentric rectangles */}
           <div className="relative flex justify-center items-center w-44 h-44">
