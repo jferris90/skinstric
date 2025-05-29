@@ -5,6 +5,9 @@ import RaceCard from "../components/RaceCard"
 import SexCard from "../components/SexCard"
 import PercentCard from "../components/PercentCard"
 import { useState } from "react"
+import HomeBtn from "../components/HomeBtn"
+import RadialCircle from "../components/RadialCircle"
+import SelectedLabel from "../components/SelectedLabel"
 
 const Analysis = () => {
   const [showAllRaces, setShowAllRaces] = useState(false);
@@ -15,7 +18,7 @@ const Analysis = () => {
   const [selectedRace, setSelectedRace] = useState(null);
   const [selectedAge, setSelectedAge] = useState(null);
   const [selectedSex, setSelectedSex] = useState(null);
-  const [selectedCard, setSelectedCard] = useState(null);
+  const [selectedCard, setSelectedCard] = useState("race");
   
   const [raceClicked, setRaceClicked] = useState(false);
   const [ageClicked, setAgeClicked] = useState(false);
@@ -54,6 +57,12 @@ const Analysis = () => {
   let cardTitleSex = "SEX";
   let selectedKey = null;
 
+  if (selectedCard === "race") {
+    percentTitle = "RACE";
+    percentData = allRaces;
+    cardTitleRace = selectedRace || "RACE";
+    selectedKey = selectedRace;
+  }
   if (showAllRaces) {
     percentTitle = "RACE";
     percentData = allRaces;
@@ -71,6 +80,17 @@ const Analysis = () => {
     percentData = allSex;
     cardTitleSex = selectedSex || "SEX";
     selectedKey = selectedSex;
+  }
+
+  // Display selected percent in radial circle, or top race percent by default
+  let radialPercent = 0;
+    if (selectedKey && percentData.length > 0) {
+      const found = percentData.find(([key]) => key === selectedKey);
+      if (found) {
+        radialPercent = found[1] * 100;
+      }
+    } else if (allRaces.length > 0) {
+      radialPercent = Math.max(...allRaces.map(([_, value]) => value)) * 100;
   }
 
   return (
@@ -97,6 +117,7 @@ const Analysis = () => {
                 setSelectedCard("race");
               }}
               className="w-full cursor-pointer"
+              id="race__card"
             >
               <RaceCard title={selectedRace ||cardTitleRace} isClicked={raceClicked} />
             </div>
@@ -112,6 +133,7 @@ const Analysis = () => {
                 
               }}
               className="w-full cursor-pointer"
+              id="age__card"
             >
               <AgeCard title={selectedAge || cardTitleAge} isClicked={ageClicked} />
             </div>
@@ -127,13 +149,24 @@ const Analysis = () => {
                 
               }}
               className="w-full cursor-pointer"
+              id="sex__card"
             >
               <SexCard title={selectedSex ||cardTitleSex} isClicked={sexClicked} />
             </div>
           </div>
           {/* Column 2 */}
-          <div className="w-[1168px] h-full bg-[#F3F3F4] flex items-center justify-center border-t-1 border-black-200">
-            <span className="text-green-800">Column 2</span>
+          <div className="w-[1168px] h-full bg-[#F3F3F4] flex flex-col justify-between border-t-1 border-black-200 relative">
+            <div className="ml-4 mt-2">
+              <SelectedLabel
+                selectedRace={selectedRace}
+                selectedAge={selectedAge}
+                selectedSex={selectedSex}
+                selectedCard={selectedCard}
+              />
+            </div>
+            <div className="absolute bottom-2 right-4">
+              <RadialCircle percent={radialPercent} size={230} color="#000" />
+            </div>
           </div>
           {/* Column 3 */}
           <div className="w-[430px] h-full mr-4 bg-[#F3F3F4] flex items-center justify-center border-t-1 border-black-200 relative">
@@ -147,8 +180,8 @@ const Analysis = () => {
                 {percentTitle}
               </div>
             )}
-            {percentData.length > 0 ? (
-              <div className={`w-full flex flex-col items-center font-roobertTrial justify-center tracking-normal leading-[1px] ${showAllAges ? "-mt-[30%]" : showAllRaces ? "-mt-[50%] -ml-[4px]" : showAllSex ?"-mt-[120%] uppercase" : ""}`}>
+            {percentData.length > 0 && (
+              <div className={`w-full flex flex-col items-center font-roobertTrial justify-center tracking-normal leading-[1px] ${showAllAges ? "-mt-[35%]" : showAllRaces || selectedCard === "race" ? "-mt-[60%] -ml-[4px]" : showAllSex ?"-mt-[130%] uppercase" : ""}`}>
                 <PercentCard
                   title={null}
                   data={percentData}
@@ -160,8 +193,6 @@ const Analysis = () => {
                   }}
                 />
               </div>
-            ) : (
-              <span className="text-yellow-800">Column 3</span>
             )}
           </div>
         </div>
@@ -170,6 +201,9 @@ const Analysis = () => {
       <footer className="relative">
         <div className="absolute -bottom-12.25 left-4.5 flex items-center">
           <BackBtn />
+        </div>
+        <div className="absolute -bottom-12.25 right-4.5 flex items-center">
+          <HomeBtn />
         </div>
       </footer>
     </div>
