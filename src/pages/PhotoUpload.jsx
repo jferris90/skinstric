@@ -123,6 +123,7 @@ const PhotoUpload = () => {
             <img src="/Rectangle 2780.png" className="absolute top-1/2 left-1/2 w-36 h-36 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-10 animate-spin1" alt="Rectangle 2780" />
             <img src="/Rectangle 2781.png" className="absolute top-1/2 left-1/2 w-32 h-32 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-20 animate-spin2" alt="Rectangle 2781" />
             <img src="/Rectangle 2782.png" className="absolute top-1/2 left-1/2 w-28 h-28 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-30 animate-spin3" alt="Rectangle 2782" />
+            <img src="/camera.png" alt="camera text" className="absolute left-[52%] top-[10%]"></img>
             <img
               src="/camera-icon.png"
               alt="Camera Icon"
@@ -152,6 +153,7 @@ const PhotoUpload = () => {
               className="absolute top-1/2 left-1/2 w-28 h-28 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-30 animate-spin3"
               alt="Rectangle 2782"
             />
+            <img src="/gallery.png" alt="Gallery text" className="absolute z-10 right-[60%] -bottom-[10%]"></img>
             <img src="/gallery-icon.png" alt="Gallery Icon" className="w-19 h-19 z-40 relative cursor-pointer hover:scale-105 transition-all duration-500 ease-in-out" onClick={handleGalleryClick} />
             <input
               type="file"
