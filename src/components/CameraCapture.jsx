@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const CameraCapture = ({ onCapture, onClose }) => {
   const videoRef = useRef(null);
@@ -57,7 +57,7 @@ const CameraCapture = ({ onCapture, onClose }) => {
           </button>
         </div>
       )}
-      <canvas ref={canvasRef} width={320} height={240} style={{ display: "none" }} />
+      <canvas ref={canvasRef} width={320} height={240} className=""  />
       {captured && <div className="text-green-700 font-bold">Photo saved!</div>}
     </div>
   );
