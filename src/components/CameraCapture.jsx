@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 
 const CameraCapture = ({ onCapture, onClose }) => {
   const videoRef = useRef(null);
@@ -7,7 +7,7 @@ const CameraCapture = ({ onCapture, onClose }) => {
   const [captured, setCaptured] = useState(false);
 
   // Ask for camera permission and start video
-  React.useEffect(() => {
+  useEffect(() => {
     const getCamera = async () => {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({ video: true });
