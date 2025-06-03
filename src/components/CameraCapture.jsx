@@ -34,12 +34,13 @@ const CameraCapture = ({ onCapture, onClose }) => {
       const context = canvasRef.current.getContext("2d");
       context.drawImage(videoRef.current, 0, 0, 320, 240);
       const dataUrl = canvasRef.current.toDataURL("image/png");
+      console.log(dataUrl);
       setCaptured(true);
       onCapture && onCapture(dataUrl);
       // Stop the camera stream
-      // if (videoRef.current.srcObject) {
-      //   videoRef.current.srcObject.getTracks().forEach(track => track.stop());
-      // }
+      if (videoRef.current.srcObject) {
+        videoRef.current.srcObject.getTracks().forEach(track => track.stop());
+      }
     }
   };
 
