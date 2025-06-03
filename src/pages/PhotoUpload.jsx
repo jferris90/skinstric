@@ -136,19 +136,18 @@ const PhotoUpload = () => {
               className="w-19 h-19 z-40 relative cursor-pointer"
               onClick={handleCameraClick}
             />
-            
-            {showCamera && (
-              <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-90 z-50">
-                <CameraCapture onCapture={handleCameraCapture} onClose={() => setShowCamera(false)} />
-              </div>
-            )}
-
             {base64Image && (
               <img
                 src={base64Image}
                 alt="Preview"
                 className="w-32 h-32 object-cover rounded-full mx-auto my-4"
               />
+            )}
+            
+            {showCamera && (
+              <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-90 z-50">
+                <CameraCapture onCapture={handleCameraCapture} onClose={() => setShowCamera(false)} />
+              </div>
             )}
           </div>
           {/* Gallery Icon with concentric rectangles */}
