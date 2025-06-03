@@ -41,14 +41,20 @@ const PhotoUpload = () => {
     }
   };
 
-  // When CameraCapture returns a photo, set it as base64Image
+  {/*// When CameraCapture returns a photo, set it as base64Image
   const handleCameraCapture = (dataUrl) => {
     // Remove the data:image/png;base64, prefix if present
     const base64Only = dataUrl.includes(',') ? dataUrl.split(',')[1] : dataUrl;
     setBase64Image(`/${base64Only}`);
     localStorage.setItem('userPhoto', dataUrl);
     setShowCamera(false);
-  };
+  }; */}
+
+  const handleCameraCapture = (dataUrl) => {
+    setBase64Image(dataUrl); // Use full data URL for preview
+    localStorage.setItem('userPhoto', dataUrl); // Store full data URL
+    setShowCamera(false);
+};
 
   useEffect(() => {
     const postImage = async () => {
