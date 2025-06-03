@@ -37,9 +37,9 @@ const CameraCapture = ({ onCapture, onClose }) => {
       setCaptured(true);
       onCapture && onCapture(dataUrl);
       // Stop the camera stream
-      if (videoRef.current.srcObject) {
-        videoRef.current.srcObject.getTracks().forEach(track => track.stop());
-      }
+      // if (videoRef.current.srcObject) {
+      //   videoRef.current.srcObject.getTracks().forEach(track => track.stop());
+      // }
     }
   };
 
