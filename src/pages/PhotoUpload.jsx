@@ -130,12 +130,6 @@ const PhotoUpload = () => {
             <img src="/Rectangle 2781.png" className="absolute top-1/2 left-1/2 w-32 h-32 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-20 animate-spin2" alt="Rectangle 2781" />
             <img src="/Rectangle 2782.png" className="absolute top-1/2 left-1/2 w-28 h-28 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-30 animate-spin3" alt="Rectangle 2782" />
             <img src="/camera.png" alt="camera text" className="absolute left-[52%] top-[10%]"></img>
-            <img
-              src="/camera-icon.png"
-              alt="Camera Icon"
-              className="w-19 h-19 z-40 relative cursor-pointer"
-              onClick={handleCameraClick}
-            />
             {base64Image && (
               <img
                 src={base64Image}
@@ -143,7 +137,12 @@ const PhotoUpload = () => {
                 className="w-32 h-32 object-cover rounded-full mx-auto my-4"
               />
             )}
-            
+            <img
+              src="/camera-icon.png"
+              alt="Camera Icon"
+              className="w-19 h-19 z-40 relative cursor-pointer"
+              onClick={handleCameraClick}
+            />
             {showCamera && (
               <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-90 z-50">
                 <CameraCapture onCapture={handleCameraCapture} onClose={() => setShowCamera(false)} />
