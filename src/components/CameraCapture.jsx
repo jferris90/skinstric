@@ -6,27 +6,58 @@ const CameraCapture = ({ onCapture, onClose }) => {
   const [hasPermission, setHasPermission] = useState(false);
   const [captured, setCaptured] = useState(false);
 
-  // Ask for camera permission and start video
+
   useEffect(() => {
-    const getCamera = async () => {
-      try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-        setHasPermission(true);
+  let stream;
+  const getCamera = async () => {
+    try {
+      stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      setHasPermission(true);
+
+      // Wait for videoRef.current to be available
+      const assignStream = () => {
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
+        } else {
+          setTimeout(assignStream, 50);
         }
-      } catch {
-        alert("Camera access denied or not available.");
-        onClose && onClose();
-      }
-    };
-    getCamera();
-    return () => {
-      if (videoRef.current && videoRef.current.srcObject) {
-        videoRef.current.srcObject.getTracks().forEach(track => track.stop());
-      }
-    };
-  }, [onClose]);
+      };
+      assignStream();
+    } catch {
+      alert("Camera access denied or not available.");
+      onClose && onClose();
+    }
+  };
+  getCamera();
+
+  return () => {
+    if (stream) {
+      stream.getTracks().forEach(track => track.stop());
+    }
+  };
+}, [onClose]);
+
+  // Ask for camera permission and start video
+  // useEffect(() => {
+  //   const getCamera = async () => {
+  //     try {
+  //       const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+  //       setHasPermission(true);
+  //       if (videoRef.current) {
+  //         videoRef.current.srcObject = stream;
+  //       }
+  //     } catch {
+  //       alert("Camera access denied or not available.");
+  //       onClose && onClose();
+  //     }
+  //   };
+  //   getCamera();
+  //   return () => {
+  //     if (videoRef.current && videoRef.current.srcObject) {
+  //       videoRef.current.srcObject.getTracks().forEach(track => track.stop());
+  //     }
+  //   };
+  // }, [onClose]);
 
   // Capture photo from video
   const handleTakePhoto = () => {
@@ -49,7 +80,7 @@ const CameraCapture = ({ onCapture, onClose }) => {
       <button className="self-end text-black text-xs mb-2" onClick={onClose}>Close</button>
       {hasPermission && !captured && (
         <div className="flex flex-col items-center gap-2">
-          <video ref={videoRef} width={320} height={240} autoPlay playsInline muted className="rounded border z-100" />
+          <video ref={videoRef} width={320} height={240} autoPlay playsInline muted className="rounded border" />
           <button
             className="px-4 py-2 bg-green-600 text-white rounded"
             onClick={handleTakePhoto}
