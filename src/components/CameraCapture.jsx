@@ -58,7 +58,7 @@ const CameraCapture = ({ onCapture, onClose }) => {
           </button>
         </div>
       )}
-      <canvas ref={canvasRef} width={320} height={240} className=""  />
+      <canvas ref={canvasRef} width={320} height={240} style={{ display: captured ? "block" : "none"}}  />
       {captured && <div className="text-green-700 font-bold">Photo saved!</div>}
     </div>
   );

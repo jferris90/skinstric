@@ -7,8 +7,7 @@ import 'aos/dist/aos.css';
 AOS.init();
 
 createRoot(document.getElementById('root')).render(
-  <App />
-  // <StrictMode>
-  //   <App />
-  // </StrictMode>,
+  <StrictMode>
+    <App />
+  </StrictMode>,
 )
