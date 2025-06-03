@@ -130,13 +130,6 @@ const PhotoUpload = () => {
             <img src="/Rectangle 2781.png" className="absolute top-1/2 left-1/2 w-32 h-32 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-20 animate-spin2" alt="Rectangle 2781" />
             <img src="/Rectangle 2782.png" className="absolute top-1/2 left-1/2 w-28 h-28 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-30 animate-spin3" alt="Rectangle 2782" />
             <img src="/camera.png" alt="camera text" className="absolute left-[52%] top-[10%]"></img>
-            {base64Image && (
-              <img
-                src={base64Image}
-                alt="Preview"
-                className="w-32 h-32 object-cover rounded-full mx-auto my-4"
-              />
-            )}
             <img
               src="/camera-icon.png"
               alt="Camera Icon"

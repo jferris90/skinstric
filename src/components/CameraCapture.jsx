@@ -49,7 +49,7 @@ const CameraCapture = ({ onCapture, onClose }) => {
       <button className="self-end text-black text-xs mb-2" onClick={onClose}>Close</button>
       {hasPermission && !captured && (
         <div className="flex flex-col items-center gap-2">
-          <video ref={videoRef} width={320} height={240} autoPlay className="rounded border" />
+          <video ref={videoRef} width={320} height={240} autoPlay playsInline muted className="rounded border z-100" />
           <button
             className="px-4 py-2 bg-green-600 text-white rounded"
             onClick={handleTakePhoto}
