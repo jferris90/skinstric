@@ -19,13 +19,13 @@ const SexCard = ({ title, isClicked }) => {
   const displaySex = title && title !== "SEX" ? title : topSex;
 
   return (
-    <div className={`w-full h-20 border-t-1 border-black-200 max-w-xs flex flex-col p-2 items-start justify-between ${isClicked ? "bg-black" : "bg-[#F3F3F4}"}`}>
+    <div className={`w-full h-30 border-t-1 border-black-200 max-w-xs flex flex-col p-2 items-start justify-between ${isClicked ? "bg-black" : "bg-[#F3F3F4}"}`}>
       {displaySex ? (
-        <span className={`text-[9px] uppercase font-semibold ${isClicked ? "text-white" : "text-black"}`}>{displaySex}</span>
+        <span className={`text-[18px] uppercase font-semibold ${isClicked ? "text-white" : "text-black"}`}>{displaySex}</span>
       ) : (
         <span className="text-gray-500">No sex data available</span>
       )}
-      <span className={`bg-transparent text-[10px] font-bold ${isClicked ? "text-white" : "text-black"}`}>SEX</span>
+      <span className={`bg-transparent text-[20px] font-bold ${isClicked ? "text-white" : "text-black"}`}>SEX</span>
     </div>
   )
 }

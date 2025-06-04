@@ -32,7 +32,7 @@ const RadialCircle = ({ percent = 0, size = 120, stroke = 3, color = "#000", bgC
         />
       </svg>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
-        <span className="text-xl font-bold text-black">{Math.round(progress)}%</span>
+        <span className="text-4xl font-bold text-black">{Math.round(progress)}%</span>
         {children}
       </div>
     </div>

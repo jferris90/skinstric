@@ -45,10 +45,10 @@ const InfoBox = () => {
   if (loading) {
     return (
       <div className="flex flex-col items-center w-[600px]">
-        <span className="text-[16px] text-[#1A1B1C] font-roobertTrial uppercase tracking-wide -mt-[30px]">
+        <span className="text-[32px] text-[#1A1B1C] font-roobertTrial uppercase tracking-wide -mt-[30px]">
           Processing Submission
         </span>
-        <span className="text-[60px] animate-pulse tracking-wide -mt-[50px]">
+        <span className="text-[100px] animate-pulse tracking-wide -mt-[50px]">
           ...
         </span>
       </div>
@@ -59,15 +59,15 @@ const InfoBox = () => {
     return (
       <>
         <div className="flex flex-col items-center font-roobertTrial -mt-[97px] w-[600px]">
-          <span className="text-[15px] mb-2">
+          <span className="text-[30px] mb-2">
             Thank You!
           </span>
-          <span className="text-[10px]">
+          <span className="text-[20px]">
             Proceed for the next step
           </span>
         </div>
         <footer className="relative">
-          <div className="fixed bottom-4 right-4 flex items-center z-50">
+          <div className="fixed bottom-26 right-12 flex items-center z-50">
             <ProceedBtn />
           </div>
         </footer>
@@ -77,13 +77,13 @@ const InfoBox = () => {
 
   return (
     <div className="flex flex-col items-center font-roobertTrial -mt-[97px]">
-      <label htmlFor="userInput" className="text-[8px] text-[#797979] uppercase tracking-wide">
+      <label htmlFor="userInput" className="text-[16px] text-[#797979] uppercase tracking-wide">
         {step === 1 ? 'click to type' : 'city name'}
       </label>
       <input
         id="userInput"
         type="text"
-        className="px-1 py-2 w-72 mt-1 h-10 text-[32px] focus:outline-none decoration-1 underline underline-offset-[5px] under text-center tracking-tight"
+        className="px-1 py-2 w-80 mt-1 h-12 text-[38px] focus:outline-none decoration-1 underline underline-offset-[5px] under text-center tracking-tight"
         placeholder={step === 1 ? 'Introduce Yourself' : 'your city name'}
         value={inputValue}
         onChange={handleInputChange}

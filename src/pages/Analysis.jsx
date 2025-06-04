@@ -4,13 +4,13 @@ import Header from "../components/Header"
 import RaceCard from "../components/RaceCard"
 import SexCard from "../components/SexCard"
 import PercentCard from "../components/PercentCard"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import HomeBtn from "../components/HomeBtn"
 import RadialCircle from "../components/RadialCircle"
 import SelectedLabel from "../components/SelectedLabel"
 
 const Analysis = () => {
-  const [showAllRaces, setShowAllRaces] = useState(false);
+  const [showAllRaces, setShowAllRaces] = useState(true);
   const [showAllAges, setShowAllAges] = useState(false);
   const [showAllSex, setShowAllSex] = useState(false);
 
@@ -20,7 +20,7 @@ const Analysis = () => {
   const [selectedSex, setSelectedSex] = useState(null);
   const [selectedCard, setSelectedCard] = useState("race");
   
-  const [raceClicked, setRaceClicked] = useState(false);
+  const [raceClicked, setRaceClicked] = useState(true);
   const [ageClicked, setAgeClicked] = useState(false);
   const [sexClicked, setSexClicked] = useState(false);
 
@@ -82,6 +82,30 @@ const Analysis = () => {
     selectedKey = selectedSex;
   }
 
+  // Set selectedRace to the race with the highest % value on mount
+  useEffect(() => {
+    if (allRaces.length > 0) {
+      const [topRace] = [...allRaces].sort((a, b) => b[1] - a[1]);
+      setSelectedRace(topRace[0]);
+    }
+  }, []);
+
+  // Set selectedAge to the age with the highest % value on mount
+  useEffect(() => {
+    if (allAges.length > 0) {
+      const [topAge] = [...allAges].sort((a, b) => b[1] - a[1]);
+      setSelectedAge(topAge[0]);
+    }
+  }, []);
+
+  // Set selectedSex to the highest % value on mount
+  useEffect(() => {
+    if (allSex.length > 0) {
+      const [topSex] = [...allSex].sort((a, b) => b[1] - a[1]);
+      setSelectedSex(topSex[0]);
+    }
+  }, []);
+
   // Display selected percent in radial circle, or top race percent by default
   let radialPercent = 0;
     if (selectedKey && percentData.length > 0) {
@@ -98,14 +122,14 @@ const Analysis = () => {
       <Header text="INTRO"/>
       {/* Hero Title Section */}
       <div className="w-full flex flex-col items-start ml-5 -mt-4">
-        <p className="text-gray-800 text-[9px] font-roobertTrial font-semibold uppercase">a.i. analysis</p>
-        <h1 className="text-[40px] leading-11 tracking-tight font-roobertTrial text-gray-900  uppercase">demographics</h1>
-        <p className="text-gray-800 text-[8px] font-roobertTrial uppercase">predicted race & age</p>
+        <p className="text-gray-800 text-[18px] font-roobertTrial font-semibold uppercase">a.i. analysis</p>
+        <h1 className="text-[60px] leading-11 tracking-tight font-roobertTrial text-gray-900  uppercase">demographics</h1>
+        <p className="text-gray-800 text-[16px] font-roobertTrial uppercase">predicted race & age</p>
       </div>
       <section className="w-full h-[57vh] flex justify-center items-center mt-12 overflow-x-clip">
         <div className="w-full h-full flex gap-2 ">
           {/* Column 1 */}
-          <div className="w-[208px] h-full flex flex-col items-center justify-start ml-4 gap-2 border-t-1 border-black-200">
+          <div className="w-1/8 h-full flex flex-col items-center justify-start ml-4 gap-2 border-t-1 border-black-200">
             <div
               onClick={() => {
                 setShowAllRaces(true);               
@@ -155,7 +179,7 @@ const Analysis = () => {
             </div>
           </div>
           {/* Column 2 */}
-          <div className="w-[1168px] h-full bg-[#F3F3F4] flex flex-col justify-between border-t-1 border-black-200 relative">
+          <div className="w-4/6 h-full bg-[#F3F3F4] flex flex-col justify-between border-t-1 border-black-200 relative">
             <div className="ml-4 mt-2">
               <SelectedLabel
                 selectedRace={selectedRace}
@@ -165,23 +189,23 @@ const Analysis = () => {
               />
             </div>
             <div className="absolute bottom-2 right-4">
-              <RadialCircle percent={radialPercent} size={230} color="#000" />
+              <RadialCircle percent={radialPercent} size={400} color="#000" />
             </div>
           </div>
           {/* Column 3 */}
-          <div className="w-[430px] h-full mr-4 bg-[#F3F3F4] flex items-center justify-center border-t-1 border-black-200 relative">
+          <div className="w-1/5 h-full mr-4 bg-[#F3F3F4] flex items-center justify-center border-t-1 border-black-200 relative">
             {/* "A.I. Confidence" label in the top right */}
-            <div className="absolute top-2 right-4 text-[9px] font-semibold text-black font-roobertTrial uppercase tracking-tight">
+            <div className="absolute top-2 right-4 text-[18px] font-semibold text-black font-roobertTrial uppercase tracking-tight">
               A.I. Confidence
             </div>
             {/* PercentCard title in the top left */}
             {percentData.length > 0 && (
-              <div className="absolute top-2 left-2 text-[9px] font-semibold text-black font-roobertTrial uppercase">
+              <div className="absolute top-2 left-2 text-[18px] font-semibold text-black font-roobertTrial uppercase">
                 {percentTitle}
               </div>
             )}
             {percentData.length > 0 && (
-              <div className={`w-full flex flex-col items-center font-roobertTrial justify-center tracking-normal leading-[1px] ${showAllAges ? "-mt-[35%]" : showAllRaces || selectedCard === "race" ? "-mt-[60%] -ml-[4px]" : showAllSex ?"-mt-[130%] uppercase" : ""}`}>
+              <div className={`w-full flex flex-col items-center font-roobertTrial justify-center tracking-normal leading-[1px] ${showAllAges ? "-mt-[100%]" : showAllRaces || selectedCard === "race" ? "-mt-[120%] -ml-[4px]" : showAllSex ?"-mt-[160%] uppercase" : ""}`}>
                 <PercentCard
                   title={null}
                   data={percentData}
@@ -199,10 +223,10 @@ const Analysis = () => {
       </section>
 
       <footer className="relative">
-        <div className="absolute -bottom-12.25 left-4.5 flex items-center">
+        <div className="absolute -bottom-24.5 left-9 flex items-center">
           <BackBtn />
         </div>
-        <div className="absolute -bottom-12.25 right-4.5 flex items-center">
+        <div className="absolute -bottom-24.5 right-9 flex items-center">
           <HomeBtn />
         </div>
       </footer>

@@ -37,28 +37,6 @@ const CameraCapture = ({ onCapture, onClose }) => {
   };
 }, [onClose]);
 
-  // Ask for camera permission and start video
-  // useEffect(() => {
-  //   const getCamera = async () => {
-  //     try {
-  //       const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-  //       setHasPermission(true);
-  //       if (videoRef.current) {
-  //         videoRef.current.srcObject = stream;
-  //       }
-  //     } catch {
-  //       alert("Camera access denied or not available.");
-  //       onClose && onClose();
-  //     }
-  //   };
-  //   getCamera();
-  //   return () => {
-  //     if (videoRef.current && videoRef.current.srcObject) {
-  //       videoRef.current.srcObject.getTracks().forEach(track => track.stop());
-  //     }
-  //   };
-  // }, [onClose]);
-
   // Capture photo from video
   const handleTakePhoto = () => {
     if (videoRef.current && canvasRef.current) {

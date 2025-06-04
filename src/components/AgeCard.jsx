@@ -32,13 +32,13 @@ const AgeCard = ({ title, isClicked }) => {
   // If a title prop is provided (selected), use it, otherwise use topAge
   const displayAge = title && title !== "AGE" ? title : topAge;
   return (
-    <div className={`w-full h-20 border-t-1 border-black-200 max-w-xs flex p-2 flex-col items-start justify-between ${isClicked ? "bg-black" : "bg-[#F3F3F4}"}`}>
+    <div className={`w-full h-30 border-t-1 border-black-200 max-w-xs flex p-2 flex-col items-start justify-between ${isClicked ? "bg-black" : "bg-[#F3F3F4}"}`}>
       {displayAge ? (
-        <span className={`text-[9px] font-semibold ${isClicked ? "text-white" : "text-black"}`}>{displayAge}</span>
+        <span className={`text-[18px] font-semibold ${isClicked ? "text-white" : "text-black"}`}>{displayAge}</span>
       ) : (
         <span className="text-gray-500">No age data available</span>
       )}
-      <span className={`text-[10px] uppercase font-semibold ${isClicked ? "text-white" : "text-black"}`}>AGE</span>
+      <span className={`text-[20px] uppercase font-semibold ${isClicked ? "text-white" : "text-black"}`}>AGE</span>
     </div>
   )
 }

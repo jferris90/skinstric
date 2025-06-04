@@ -37,20 +37,20 @@ const Results = () => {
             <img
             src="/Rectangle 2782.png"
             alt="Rectangle 2780"
-            className={`absolute left-1/2 top-[54%] w-70 h-70 -translate-x-1/2 -translate-y-1/2 transition-transformation duration-400 ease-linear opacity-0  ${isHovered ? "scale-140 opacity-100" : "opacity-0"}`}
+            className={`absolute left-1/2 top-[54%] w-140 h-140 -translate-x-1/2 -translate-y-1/2 transition-transformation duration-400 ease-linear opacity-0  ${isHovered ? "scale-140 opacity-100" : "opacity-0"}`}
             />
             {/* Bottom */}
-            <div className="absolute left-1/2 top-[59%] -translate-x-1/2 transition-transform rotate-45 w-26 h-26 object-contain overflow-clip cursor-not-allowed">
+            <div className="absolute left-1/2 top-[59.4%] -translate-x-1/2 transition-transform rotate-45 w-52 h-52 object-contain overflow-clip cursor-not-allowed">
                 <img src={images[3].src} alt={images[3].alt} className=" -rotate-45 scale-150"/>
             </div>
           
             {/* Left */}
-            <div className="absolute top-[54%] right-[52.5%] -translate-y-1/2 transition-transform rotate-45 w-26 h-26 object-contain overflow-clip cursor-not-allowed">
+            <div className="absolute top-[54%] right-[52.8%] -translate-y-1/2 transition-transform rotate-45 w-52 h-52 object-contain overflow-clip cursor-not-allowed">
                 <img src={images[0].src} alt={images[0].alt} className="-rotate-45 scale-150"/>
             </div>
           
             {/* Top */}
-            <div className={`absolute left-1/2 bottom-[51.5%] -translate-x-1/2 transition-transform rotate-45 w-26 h-26 object-contain border-none overflow-clip transition-transformation duration-400 linear ${isHovered ? 'cursor-pointer scale-[104%] bg-blue-500 drop-shadow-white' : ''}`}
+            <div className={`absolute left-1/2 bottom-[51.5%] -translate-x-1/2 transition-transform rotate-45 w-52 h-52 object-contain border-none overflow-clip transition-transformation duration-400 linear ${isHovered ? 'cursor-pointer scale-[104%] bg-blue-500 drop-shadow-white' : ''}`}
             onMouseLeave={handleTopMouseLeave}
             onMouseEnter={handleTopMouseEntered}
             onClick={handleTopClick} >
@@ -59,13 +59,13 @@ const Results = () => {
             </div>
           
             {/* Right */}
-            <div className="absolute top-[54%] left-[52.6%] -translate-y-1/2 transition-transform rotate-45 w-26 h-26 object-contain overflow-clip cursor-not-allowed" >
+            <div className="absolute top-[54%] left-[52.8%] -translate-y-1/2 transition-transform rotate-45 w-52 h-52 object-contain overflow-clip cursor-not-allowed" >
                 <img src={images[2].src} alt={images[2].alt} className="-rotate-45 scale-150" />
             </div>
         </div>
       </main>
       <footer className="relative">
-        <div className="absolute bottom-3 left-5 flex items-center">
+        <div className="absolute bottom-0 left-10 flex items-center">
           <BackBtn />
         </div>
       </footer>

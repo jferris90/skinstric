@@ -5,7 +5,7 @@ const PercentCard = ({ title, data, selectedKey, onSelect }) => {
         {data.map(([key, value]) => (
           <div
             key={key}
-            className={`w-full flex flex-row justify-between items-center text-[9px] capitalize mb-1 py-2.75 font-roobertTrial cursor-pointer
+            className={`w-full flex flex-row justify-between items-center text-[18px] capitalize mb-1 py-2.75 font-roobertTrial cursor-pointer
               ${selectedKey === key ? "bg-black text-white" : "text-black"}
               ${selectedKey !== key ? "hover:bg-gray-300" : ""}
             `}

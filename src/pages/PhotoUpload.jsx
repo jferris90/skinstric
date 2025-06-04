@@ -92,23 +92,23 @@ const PhotoUpload = () => {
   if (uploading) {
     return (
       <div className="flex justify-center items-center h-screen w-full bg-white">
-        <div className="relative flex justify-center items-center w-60 h-60">
+        <div className="relative flex justify-center items-center w-120 h-120">
           <img
             src="/Rectangle 2780.png"
-            className="absolute top-1/2 left-1/2 w-60 h-60 scale-125 transform -translate-x-1/2 -translate-y-1/2 z-10 animate-spin1"
+            className="absolute top-1/2 left-1/2 w-120 h-120 scale-125 transform -translate-x-1/2 -translate-y-1/2 z-10 animate-spin1"
             alt="Rectangle 2780"
           />
           <img
             src="/Rectangle 2781.png"
-            className="absolute top-1/2 left-1/2 w-48 h-48 scale-125 transform -translate-x-1/2 -translate-y-1/2 z-20 animate-spin2"
+            className="absolute top-1/2 left-1/2 w-96 h-96 scale-125 transform -translate-x-1/2 -translate-y-1/2 z-20 animate-spin2"
             alt="Rectangle 2781"
           />
           <img
             src="/Rectangle 2782.png"
-            className="absolute top-1/2 left-1/2 w-36 h-36 scale-125 transform -translate-x-1/2 -translate-y-1/2 z-30 animate-spin3"
+            className="absolute top-1/2 left-1/2 w-72 h-72 scale-125 transform -translate-x-1/2 -translate-y-1/2 z-30 animate-spin3"
             alt="Rectangle 2782"
           />
-          <span className="text-[12px] font-roobertTrial text-[#1A1B1C] animate-pulse z-40 absolute top-1/2 left-1/2 ml-4 transform -translate-x-1/2 -translate-y-1/2 w-[126px]">
+          <span className="text-[24px] font-roobertTrial text-[#1A1B1C] animate-pulse z-40 absolute top-1/2 left-1/2 ml-4 transform -translate-x-1/2 -translate-y-1/2 w-[126px]">
             Uploading image...
           </span>
         </div>
@@ -119,21 +119,21 @@ const PhotoUpload = () => {
   return (
     <>
       <Header text="INTRO" />
-      <div className="absolute top-12 left-5 text-[8px] font-bold font-roobertTrial uppercase">
+      <div className="absolute top-12 left-12 text-[16px] font-bold font-roobertTrial uppercase">
         To Start Analysis
       </div>
       <main className="flex justify-center items-center h-[80vh] w-full">
         <div className="flex justify-center items-center gap-62 -ml-12 -mt-2">
           {/* Camera Icon with concentric rectangles */}
-          <div className="relative flex justify-center items-center w-44 h-44">
-            <img src="/Rectangle 2780.png" className="absolute top-1/2 left-1/2 w-36 h-36 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-10 animate-spin1" alt="Rectangle 2780" />
-            <img src="/Rectangle 2781.png" className="absolute top-1/2 left-1/2 w-32 h-32 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-20 animate-spin2" alt="Rectangle 2781" />
-            <img src="/Rectangle 2782.png" className="absolute top-1/2 left-1/2 w-28 h-28 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-30 animate-spin3" alt="Rectangle 2782" />
-            <img src="/camera.png" alt="camera text" className="absolute left-[52%] top-[10%]"></img>
+          <div className="relative flex justify-center items-center w-88 h-88">
+            <img src="/Rectangle 2780.png" className="absolute top-1/2 left-1/2 w-72 h-72 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-10 animate-spin1" alt="Rectangle 2780" />
+            <img src="/Rectangle 2781.png" className="absolute top-1/2 left-1/2 w-64 h-64 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-20 animate-spin2" alt="Rectangle 2781" />
+            <img src="/Rectangle 2782.png" className="absolute top-1/2 left-1/2 w-56 h-56 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-30 animate-spin3" alt="Rectangle 2782" />
+            <img src="/camera.png" alt="camera text" className="absolute left-[58%] top-[12%]"></img>
             <img
               src="/camera-icon.png"
               alt="Camera Icon"
-              className="w-19 h-19 z-40 relative cursor-pointer"
+              className="w-36 h-36 z-40 relative cursor-pointer"
               onClick={handleCameraClick}
             />
             {showCamera && (
@@ -143,24 +143,24 @@ const PhotoUpload = () => {
             )}
           </div>
           {/* Gallery Icon with concentric rectangles */}
-          <div className="relative flex justify-center items-center w-44 h-44">
+          <div className="relative flex justify-center items-center w-88 h-64">
             <img
               src="/Rectangle 2780.png"
-              className="absolute top-1/2 left-1/2 w-36 h-36 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-10 animate-spin1"
+              className="absolute top-1/2 left-1/2 w-72 h-72 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-10 animate-spin1"
               alt="Rectangle 2780"
             />
             <img
               src="/Rectangle 2781.png"
-              className="absolute top-1/2 left-1/2 w-32 h-32 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-20 animate-spin2"
+              className="absolute top-1/2 left-1/2 w-64 h-64 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-20 animate-spin2"
               alt="Rectangle 2781"
             />
             <img
               src="/Rectangle 2782.png"
-              className="absolute top-1/2 left-1/2 w-28 h-28 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-30 animate-spin3"
+              className="absolute top-1/2 left-1/2 w-56 h-56 scale-200 transform -translate-x-1/2 -translate-y-1/2 z-30 animate-spin3"
               alt="Rectangle 2782"
             />
             <img src="/gallery.png" alt="Gallery text" className="absolute z-10 right-[60%] -bottom-[10%]"></img>
-            <img src="/gallery-icon.png" alt="Gallery Icon" className="w-19 h-19 z-40 relative cursor-pointer hover:scale-105 transition-all duration-500 ease-in-out" onClick={handleGalleryClick} />
+            <img src="/gallery-icon.png" alt="Gallery Icon" className="w-38 h-38 z-40 relative cursor-pointer hover:scale-105 transition-all duration-500 ease-in-out" onClick={handleGalleryClick} />
             <input
               type="file"
               accept="image/*"
@@ -173,7 +173,7 @@ const PhotoUpload = () => {
       </main>
 
       <footer className="relative">
-        <div className="absolute -bottom-[49px] left-[19px] flex items-center">
+        <div className="absolute -bottom-[80px] left-[38px] flex items-center">
           <BackBtn />
         </div>
       </footer>

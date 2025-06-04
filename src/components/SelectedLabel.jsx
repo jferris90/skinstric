@@ -6,7 +6,7 @@ const SelectedLabel = ({ selectedRace, selectedAge, selectedSex, selectedCard })
   else label = "";
 
   return (
-    <span className="text-[22px] font-roobertTrial capitalize text-black">
+    <span className="text-[44px] font-roobertTrial capitalize text-black">
       {label}
     </span>
   );

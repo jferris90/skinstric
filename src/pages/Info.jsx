@@ -6,24 +6,24 @@ const Info = () => {
   return (
    <div className="">
       <Header text="INTRO" />
-      <div className="absolute top-9 left-5 text-[7px] font-bold font-roobertTrial uppercase">
-        To <span className="text-[6px]">S</span>tart Analysis
+      <div className="absolute top-10 left-14 text-[14px] font-bold font-roobertTrial uppercase">
+        To <span className="text-[12px]">S</span>tart Analysis
       </div>
       <main className="flex justify-center items-center h-[85vh] w-full bg-white relative">
         <div className="relative flex justify-center items-center">
           <img
             src="/Rectangle 2780.png"
-            className="absolute top-1/2 left-1/2 w-58 h-auto transform -translate-x-1/2 -translate-y-[67%] scale-200 z-10 animate-spin1"
+            className="absolute top-1/2 left-1/2 w-116 h-auto transform -translate-x-1/2 -translate-y-[67%] scale-200 z-10 animate-spin1"
             alt="Rectangle 2780"
           />
           <img
             src="/Rectangle 2781.png"
-            className="absolute top-1/2 left-1/2 w-52 h-auto transform -translate-x-1/2 -translate-y-[67%] scale-200 z-20 animate-spin2"
+            className="absolute top-1/2 left-1/2 w-104 h-auto transform -translate-x-1/2 -translate-y-[67%] scale-200 z-20 animate-spin2"
             alt="Rectangle 2781"
           />
           <img
             src="/Rectangle 2782.png"
-            className="absolute top-1/2 left-1/2 w-46 h-auto transform -translate-x-1/2 -translate-y-[67%] scale-200 z-30 animate-spin3"
+            className="absolute top-1/2 left-1/2 w-92 h-auto transform -translate-x-1/2 -translate-y-[67%] scale-200 z-30 animate-spin3"
             alt="Rectangle 2782"
           />
           <div className="relative z-40 flex justify-center items-center w-full h-full">
@@ -32,7 +32,7 @@ const Info = () => {
         </div>
       </main>
       <footer className="relative">
-        <div className="absolute -bottom-7 left-5 flex items-center">
+        <div className="absolute -bottom-7 left-10 flex items-center">
           <BackBtn />
         </div>
       </footer>
