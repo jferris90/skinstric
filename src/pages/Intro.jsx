@@ -78,7 +78,7 @@ const Intro = () => {
         </div>
 
         {/* Footer Text */}
-        <div className="absolute bottom-4 left-4 text-[#1A1B1C] text-[16px] uppercase font-semibold font-roobertTrial">
+        <div className="absolute bottom-0 left-4 text-[#1A1B1C] text-[16px] uppercase font-semibold font-roobertTrial">
           skinstric developed an a.i. that creates <br /> a highly-personalized routine tailored to <br /> what your skin needs.
         </div>
       </main>

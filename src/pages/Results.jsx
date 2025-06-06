@@ -1,67 +1,57 @@
 import Header from '../components/Header'
 import BackBtn from '../components/BackBtn';
+import DiamondImage from '../components/DiamondImage';
 import { useState } from 'react';
 import { useNavigate} from 'react-router-dom';
 
 const Results = () => {
     const [isHovered, setIsHovered] = useState(false);
     const navigate = useNavigate();
-  // Array of image data for easy mapping
-  const images = [
-    { src: '/cosmetic-img.png', alt: 'Cosmetic', label: 'Cosmetic' },
-    { src: '/demo-img.png', alt: 'Demo', label: 'Demo' },
-    { src: '/skin-img.png', alt: 'Skin', label: 'Skin' },
-    { src: '/weather-img.png', alt: 'Weather', label: 'Weather' },
+  
+  const diamonds = [
+    { label: 'Cosmetic', position: 'left' },
+    { label: 'Demo', position: 'top', interactive: true },
+    { label: 'Skin', position: 'right' },
+    { label: 'Weather', position: 'bottom' },
   ];
 
-  const handleTopMouseEntered = () => {
-    setIsHovered(true);
-  }
+  const handleTopMouseEntered = () => setIsHovered(true);
+  const handleTopMouseLeave = () => setIsHovered(false);
+  const handleTopClick = () => navigate('/analysis');
 
-  const handleTopMouseLeave = () => {
-    setIsHovered(false)
-  }
-
-  const handleTopClick = () => {
-    navigate('/analysis');
-  }
-
-  // Diamond positions: top, right, bottom, left
-  // 1: top, 2: right, 3: bottom, 0: left
   return (
     <>
       <Header text="INTRO" />
       <main className="h-[85vh] bg-white">
-        <div className="fixed w-[100%] h-[68%] scale-84 ">
-            {/* Rectangle 2780 as a background for the diamond */}
-            <img
-            src="/Rectangle 2782.png"
-            alt="Rectangle 2780"
-            className={`absolute left-1/2 top-[54%] w-140 h-140 -translate-x-1/2 -translate-y-1/2 transition-transformation duration-400 ease-linear opacity-0  ${isHovered ? "scale-140 opacity-100" : "opacity-0"}`}
+        <div className="fixed w-[100%] h-[68%] scale-82 ">
+          {/* Rectangle 2780 as a background for the diamond */}
+          <img
+            src="/Rectangle 2780.png"
+            className={`absolute left-1/2 top-[54%] w-140 h-140 -translate-x-1/2 -translate-y-1/2 transition-transform duration-400 ease-linear opacity-0 ${isHovered ? "scale-140 opacity-100" : "opacity-0"}`}
+          />
+          {/* Bottom */}
+          <div className="absolute left-1/2 top-[64%] -translate-x-1/2">
+            <DiamondImage label="Weather" />
+          </div>
+          {/* Left */}
+          <div className="absolute top-[54%] right-[53.2%] -translate-y-1/2">
+            <DiamondImage label="Cosmetic" />
+          </div>
+          {/* Top */}
+          <div className="absolute left-1/2 bottom-[56%] -translate-x-1/2">
+            <DiamondImage
+              label="Demo"
+              interactive
+              className={`${isHovered ? 'scale-[1.04] bg-blue-500 drop-shadow-white' : ''}`}
+              onMouseEnter={handleTopMouseEntered}
+              onMouseLeave={handleTopMouseLeave}
+              onClick={handleTopClick}
             />
-            {/* Bottom */}
-            <div className="absolute left-1/2 top-[59.4%] -translate-x-1/2 transition-transform rotate-45 w-52 h-52 object-contain overflow-clip cursor-not-allowed">
-                <img src={images[3].src} alt={images[3].alt} className=" -rotate-45 scale-150"/>
-            </div>
-          
-            {/* Left */}
-            <div className="absolute top-[54%] right-[52.8%] -translate-y-1/2 transition-transform rotate-45 w-52 h-52 object-contain overflow-clip cursor-not-allowed">
-                <img src={images[0].src} alt={images[0].alt} className="-rotate-45 scale-150"/>
-            </div>
-          
-            {/* Top */}
-            <div className={`absolute left-1/2 bottom-[51.5%] -translate-x-1/2 transition-transform rotate-45 w-52 h-52 object-contain border-none overflow-clip transition-transformation duration-400 linear ${isHovered ? 'cursor-pointer scale-[104%] bg-blue-500 drop-shadow-white' : ''}`}
-            onMouseLeave={handleTopMouseLeave}
-            onMouseEnter={handleTopMouseEntered}
-            onClick={handleTopClick} >
-                <img src={images[1].src} alt={images[1].alt} className=
-                {`-rotate-45 scale-150 ${isHovered ? "opacity-96" : ""}`}/>
-            </div>
-          
-            {/* Right */}
-            <div className="absolute top-[54%] left-[52.8%] -translate-y-1/2 transition-transform rotate-45 w-52 h-52 object-contain overflow-clip cursor-not-allowed" >
-                <img src={images[2].src} alt={images[2].alt} className="-rotate-45 scale-150" />
-            </div>
+          </div>
+          {/* Right */}
+          <div className="absolute top-[54%] left-[53.2%] -translate-y-1/2">
+            <DiamondImage label="Skin" />
+          </div>
         </div>
       </main>
       <footer className="relative">
@@ -70,7 +60,7 @@ const Results = () => {
         </div>
       </footer>
     </>
-  )
+  );
 };
 
-export default Results
+export default Results;

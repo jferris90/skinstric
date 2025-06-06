@@ -205,7 +205,7 @@ const Analysis = () => {
               </div>
             )}
             {percentData.length > 0 && (
-              <div className={`w-full flex flex-col items-center font-roobertTrial justify-center tracking-normal leading-[1px] ${showAllAges ? "-mt-[100%]" : showAllRaces || selectedCard === "race" ? "-mt-[120%] -ml-[4px]" : showAllSex ?"-mt-[160%] uppercase" : ""}`}>
+              <div className={`w-full flex flex-col items-center font-roobertTrial justify-center tracking-normal leading-[1px] ${showAllAges ? "-mt-[20%]" : showAllRaces || selectedCard === "race" ? "-mt-[20%] -ml-[4px]" : showAllSex ?"-mt-[20%] uppercase" : ""}`}>
                 <PercentCard
                   title={null}
                   data={percentData}
